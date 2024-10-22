@@ -10,6 +10,7 @@ import io.nekohasekai.libbox.PlatformInterface
 import io.nekohasekai.libbox.StringIterator
 import io.nekohasekai.libbox.TunOptions
 import io.nekohasekai.libbox.WIFIState
+import io.nekohasekai.libbox.DeprecatedNote
 import io.nekohasekai.sfa.Application
 import java.net.Inet6Address
 import java.net.InetSocketAddress
@@ -114,6 +115,9 @@ interface PlatformInterfaceWrapper : PlatformInterface {
             ssid = ssid.substring(1, ssid.length - 1)
         }
         return WIFIState(ssid, wifiInfo.bssid)
+    }
+
+    override fun reportDeprecated(feature: DeprecatedNote) {
     }
 
     private class InterfaceArray(private val iterator: Enumeration<NetworkInterface>) :
